@@ -1,0 +1,189 @@
+:root {
+  font-family: 'Nunito Sans', sans-serif;  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --font-size-xlarge: 32px;
+  --font-size-large: 24px;
+  --font-size-medium: 18px;
+  --font-size-small: 16px;
+  --font-size-xsmall: 14px;
+
+  --font-weight-bold: 800;
+  --font-weight-medium: 600;
+  --font-weight-light: 400;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Titles */
+.title {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+}
+
+.titleHome {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  padding-bottom: 12px;
+}
+
+.titleInfo {
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-bold);
+}
+
+/* P regular */
+
+.pRegHome, .pRegInfo, .pRegNotes {
+  font-weight: var(--font-weight-light);
+  padding: 4px 0;
+}
+
+.pRegHome, .pRegNotes {
+  font-size: var(--font-size-xsmall);
+}
+.pRegInfo {
+  font-size: var(--font-size-small);
+}
+
+/* P bold */
+
+.pBoldHome, .pBoldInfo, .pBoldNotes {
+  font-weight: var(--font-weight-medium);
+  padding: 4px 0;
+}
+
+.pBoldHome {
+  font-size: var(--font-size-xsmall);
+}
+.pBoldInfo, .pBoldNotes {
+  font-size: var(--font-size-small); 
+}
+
+/* Buttons */
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  background: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-out;
+}
+
+button:hover {
+  border-color: rgb(196, 196, 196);
+}
+
+button:focus,
+button:focus-visible {
+  border-color: rgb(28, 28, 28);
+}
+
+/* Theme */
+
+@media (prefers-color-scheme: light), 
+(prefers-color-scheme: no-preference) {
+  :root, ::placeholder {
+    color: #111517;
+  }
+
+  body {
+    background: #F2F2F2;
+  }
+
+  ::placeholder {
+    opacity: 0.8;
+  }
+
+  .bg2 {
+    background: white;
+  }
+
+  button {
+    background-color: #f9f9f9;
+    color: #111517;
+  }
+
+  .svgTheme {
+    filter: invert(0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root, ::placeholder {
+    color: white;
+  }
+
+  body {
+    background: #202C36;
+  }
+
+  ::placeholder {
+    opacity: 0.8;
+  }
+
+  .bg2 {
+    background: #2B3844;
+  }
+
+  button {
+    background-color: #2B3844;
+    color: white;
+  }
+
+  .svgTheme {
+    filter: invert(100%);
+  }
+}
+
+/* .darkTheme {
+  :root, ::placeholder {
+    color: white;
+  }
+
+  body {
+    background: #202C36;
+  }
+
+  ::placeholder {
+    opacity: 0.8;
+  }
+
+  .bg2 {
+    background: #2B3844;
+  }
+
+  button {
+    background-color: #2B3844;
+    color: white;
+  }
+
+  .svgTheme {
+    filter: invert(100%);
+  }
+} */

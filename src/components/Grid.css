@@ -1,0 +1,28 @@
+#grid {
+  padding-top: 48px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 264px);
+  justify-content: space-between;
+  grid-auto-rows: 336px;
+  column-gap: 75px;
+  row-gap: 75px;
+}
+
+.gridItem {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+img {
+  height: 160px;
+  width: 100%;
+  background: grey;
+}
+
+.countryInfo {
+  padding: 24px;
+}
+
+#errorMessage {
+  padding-top: 30px;
+}

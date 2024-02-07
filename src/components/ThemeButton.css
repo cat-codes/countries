@@ -1,0 +1,9 @@
+button {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-auto);
+}
+
+#moonLight, #moonDark {
+  padding: 10px 10px 10px 0;
+}

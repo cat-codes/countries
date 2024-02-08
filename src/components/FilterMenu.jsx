@@ -10,7 +10,7 @@ const FilterMenu = ( {id} ) => {
   const { setSearchTerm } = GetSearch();
 
   if (data === null) {
-    return <div>Loading...</div>;
+    return <div className='loading'></div>;
   }
 
   // Cereating an array of unique regions

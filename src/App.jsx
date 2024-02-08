@@ -1,26 +1,27 @@
 import './App.css'
-import Header from './components/Header'
-import HomePage from './components/HomePage'
 import { GetThemeValue } from './components/ThemeProvider'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomePage from './pages/Homepage';
+import CountryPage from './pages/CountryPage';
+import NoPage from './pages/NoPage';
 
 function App() {
   const {theme} = GetThemeValue();
 
-  if (theme === 'dark') {
-    document.documentElement.classList.add('darkTheme');
-    document.documentElement.classList.remove('lightTheme');
-  } else {
-    document.documentElement.classList.add('lightTheme');
-    document.documentElement.classList.remove('darkTheme');
-  }
-
-
   return (
     <>
-      <Header/>
-      <HomePage/>
+      <BrowserRouter>
+        <div className={theme === 'dark' ? 'darkTheme' : 'lightTheme'}>
+          <Routes>
+            <Route index element={<HomePage />} />
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/:country' element={<CountryPage />} />
+            <Route path='*' element={<NoPage />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </>
   )
 }
 
-export default App
+export default App;

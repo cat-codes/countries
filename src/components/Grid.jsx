@@ -4,6 +4,7 @@ import { GetThemeValue } from './ThemeProvider'
 import { GetData } from './DataProvider';
 import { GetFilter } from './FilterProvider';
 import { GetSearch } from './SearchProvider';
+import { Link } from 'react-router-dom';
 
 const Grid = () => {
   const {theme} = GetThemeValue()
@@ -17,7 +18,7 @@ const Grid = () => {
     setSearchError(false);
   }, [searchTerm, filteredRegion]);
 
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <div className='loading'>Loading...</div>;
 
   let filteredData = [];
 
@@ -34,27 +35,33 @@ const Grid = () => {
     filteredData = data;
   }
 
+  const handleClick = () => {
+
+  }
+
   gridItems = filteredData.map((country, index) => (
-  <div className='gridItem bg2' key={index}>
-    <img src={country.flag}/>
-    <div className='countryInfo'>
-      <div className='titleHome'>
-        {country.name}
+    <Link to={`/${country.name}`} key={index} onClick={handleClick}>
+      <div className='gridItem bg2'>
+        <img src={country.flag} alt={`${country.name} Flag`} />
+        <div className='countryInfo'>
+          <div className='titleHome'>
+            {country.name}
+          </div>
+          <div className='pRegHome'>
+            <span className='pBoldHome'>Population: </span> 
+            {country.population}
+          </div>
+          <div className='pRegHome'>
+            <span className='pBoldHome'>Region: </span>
+            {country.region}
+          </div>
+          <div className='pRegHome'>
+            <span className='pBoldHome'>Capital: </span>
+            {country.capital}
+          </div>
+        </div>
       </div>
-      <div className='pRegHome'>
-        <span className='pBoldHome'>Population: </span> 
-        {country.population}
-      </div>
-      <div className='pRegHome'>
-        <span className='pBoldHome'>Region: </span>
-        {country.region}
-      </div>
-      <div className='pRegHome'>
-        <span className='pBoldHome'>Capital: </span>
-        {country.capital}
-      </div>
-    </div>
-  </div>
+    </Link>
   ));
 
   return (

@@ -19,12 +19,17 @@ export const DataProvider = ({children}) => {
       const responseData = await response.data;
 
       // Extracting relevant data into country object
-      const country = responseData.map(({ flags: { png }, name: { common }, population, region, capital }) => ({
+      const country = responseData.map(({ flags: { png }, name: { common, nativeName },population, region, subregion, capital, tld, currencies, languages }) => ({
         flag: png,
         name: common,
+        nativeName,
         population,
         region,
-        capital
+        subregion,
+        capital,
+        topLevelDomain: tld,
+        currencies,
+        languages
       }));
 
       // Setting country as data

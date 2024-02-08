@@ -1,0 +1,10 @@
+#buttonBack {
+  width: 136px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 160px;
+  left: 80px;
+}

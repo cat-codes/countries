@@ -1,10 +1,10 @@
 import React from 'react'
-import './HomePage.css'
+import './Home.css'
 import Search from './Search.jsx'
 import Filter from './Filter.jsx'
 import Grid from './Grid.jsx'
 
-const HomePage = () => {
+const Home = () => {
   return (
     <div id='containerHome'>
       <Search id='search'/>
@@ -16,4 +16,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default Home

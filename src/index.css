@@ -25,6 +25,7 @@
 body {
   margin: 0;
   padding: 0;
+  display: flex;
   place-items: center;
   min-width: 100vw;
   min-height: 100vh;
@@ -77,6 +78,18 @@ body {
   font-size: var(--font-size-small); 
 }
 
+/* other */
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
 /* Buttons */
 
 button {
@@ -95,7 +108,7 @@ button {
   transition: border-color 0.3s ease-out;
 }
 
-button:hover {
+button:hover {  
   border-color: rgb(196, 196, 196);
 }
 
@@ -132,6 +145,10 @@ button:focus-visible {
   .svgTheme {
     filter: invert(0);
   }
+
+  a:-webkit-any-link {
+    color: #111517;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -158,6 +175,10 @@ button:focus-visible {
 
   .svgTheme {
     filter: invert(100%);
+  }
+
+  a:-webkit-any-link {
+    color: white;
   }
 }
 

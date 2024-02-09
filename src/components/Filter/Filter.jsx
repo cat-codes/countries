@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './Filter.css'
-import { GetThemeValue } from './ThemeProvider'
 import FilterMenu from './FilterMenu'
 
 const Filter = () => {
-  const {theme} = GetThemeValue();
   
   const [openDropdown, setOpenDropdown] = useState(false);
   const filterRef = useRef(null);

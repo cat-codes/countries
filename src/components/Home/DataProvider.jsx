@@ -7,12 +7,8 @@ const DataContext = createContext();
 
 export const DataProvider = ({children}) => {
   const baseUrl = 'https://restcountries.com/v3.1/all'
-
-  const [data, setData] = useState(() => {
-    const cachedData = localStorage.getItem('countryData');
-    return cachedData ? JSON.parse(cachedData) : null;
-  });
-
+  
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false)
 
@@ -24,25 +20,26 @@ export const DataProvider = ({children}) => {
       const responseData = await response.data;
 
       // Extracting relevant data into country object
-      const country = responseData.map(({ flags: { png }, name: { common, nativeName },population, region, subregion, capital, tld, currencies, languages, borders }) => ({
-        flag: png,
-        name: common,
-        nativeName,
-        population,
-        region,
-        subregion,
-        capital,
-        tld,
-        currencies,
-        languages,
-        borders
-      }));
+      const country = responseData.map(({ flags: { png }, name: { common, nativeName }, population, region, subregion, capital, tld, currencies, languages }) => {
+
+        return {
+          flag: png, 
+          name: common, 
+          nativeName,
+          population, 
+          region, 
+          subregion, 
+          capital,
+          tld,
+          currencies,
+          languages
+        };
+      });
+
 
       // Setting country as data
       setData(country);
-
-      localStorage.setItem('countryData', JSON.stringify(country));
-
+      console.log(data);
     } 
     
     catch(error) {
@@ -64,7 +61,6 @@ export const DataProvider = ({children}) => {
     return <div>Loading...</div>;
   }
 
-  // console.log(`DataProvider: ${data}`);
   
   return (
     <DataContext.Provider value={{ data, error }}>
@@ -75,7 +71,6 @@ export const DataProvider = ({children}) => {
 
 DataProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  data: PropTypes.array,
 };
 
 export const GetData = () => useContext(DataContext);

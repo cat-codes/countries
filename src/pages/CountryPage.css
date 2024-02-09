@@ -6,7 +6,6 @@
 
 #containerInfo {
   width: 100%;
-  padding: 0 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,14 +20,17 @@
 }
 
 #infoPart {
-  height: 323px;
-  width: 574px;
+  height: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  margin-left: 144px;
+  margin-left: 117px;
+}
 
+#title {
+  padding-bottom: 23px;
 }
 
 #infoBody {
@@ -36,4 +38,27 @@
   column-count: 2;
   column-gap: 117px;
   padding-bottom: 32px;
+}
+
+#notes {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  column-gap: 30px;
+  row-gap: 20px;
+  grid-auto-rows: auto;
+}
+
+#border {
+  margin-left: 10px;
+  padding: 8px 40px;
+  border-radius: 5px;
+  width: fit-content;
 }

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './FilterMenu.css'
-import { GetData } from './DataProvider';
+import { GetData } from '../DataProvider';
 import { GetFilter } from './FilterProvider';
-import { GetSearch } from './SearchProvider';
+import { GetSearch } from '../Search/SearchProvider';
+import PropTypes from 'prop-types'
 
 const FilterMenu = ( {id} ) => {
   const { data } = GetData();
@@ -38,5 +39,9 @@ const FilterMenu = ( {id} ) => {
     </ul>
   );
 };
+
+FilterMenu.propTypes = {
+  id: PropTypes.string
+}
 
 export default FilterMenu;

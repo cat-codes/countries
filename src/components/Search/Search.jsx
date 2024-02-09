@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 import './Search.css'
-import { GetThemeValue } from './ThemeProvider'
 import { GetSearch } from './SearchProvider';
-import { GetData } from './DataProvider';
 
 const Search = () => {
-  const { theme } = GetThemeValue();
-  const { data } = GetData();
   const { setSearchTerm } = GetSearch();
 
   const [input, setInput] = useState('')

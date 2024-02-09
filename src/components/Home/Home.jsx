@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.css'
-import Search from './Search.jsx'
-import Filter from './Filter.jsx'
+import Search from '../Search/Search.jsx'
+import Filter from '../Filter/Filter.jsx'
 import Grid from './Grid.jsx'
 
 const Home = () => {

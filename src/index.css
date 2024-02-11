@@ -14,36 +14,53 @@
   --font-weight-bold: 800;
   --font-weight-medium: 600;
   --font-weight-light: 400;
+
+  --main-bg-color-light: #f2f2f2;
+  --main-text-color-light: #111517;
+  --accent-bg-color-light: #ffffff;
+
+  --main-bg-color-dark: #202c36;
+  --main-text-color-dark: #ffffff;
+  --accent-bg-color-dark: #2b3844;
 }
 
 #root {
   width: 100%;
   display: flex;
-  justify-content: center;
 }
 
-body {
+body,
+.bodyLight,
+.bodyDark {
   margin: 0;
   padding: 0;
   display: flex;
-  place-items: center;
+  align-items: flex-start;
+  justify-content: center;
   min-width: 100vw;
   min-height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  transition: background-color 0.3s ease-out;
 }
 
 /* Fonts */
-h1 {
+h1,
+.h1Light,
+.h1Dark {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
 }
 
-h2 {
+h2,
+.h2Light,
+.h2Dark {
   font-weight: var(--font-weight-bold);
 }
 
-p {
+p,
+.pLight,
+.pDark {
   font-weight: var(--font-weight-light);
 }
 
@@ -51,8 +68,12 @@ p {
   font-weight: var(--font-weight-medium);
 }
 
-a:-webkit-any-link {
+a {
   text-decoration: none;
+}
+
+::placeholder {
+  opacity: 0.8;
 }
 
 .loading {
@@ -64,120 +85,175 @@ a:-webkit-any-link {
 
 /* Buttons */
 
-button {
+button,
+.buttonLight,
+.buttonDark {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 5px 20px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  background: none;
+  font-size: var(--font-size-xsmall);
+  font-weight: var(--font-weight-light);
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease-out;
 }
 
-button:hover {
-  border-color: rgb(196, 196, 196);
+button:hover,
+.buttonLight:hover {
+  border-color: #474747;
+}
+
+button:hover,
+.buttonDark:hover {
+  border-color: #c4c4c4;
 }
 
 button:focus,
-button:focus-visible {
-  border-color: rgb(28, 28, 28);
+.buttonLight:focus,
+button:focus-visible,
+.buttonLight:focus-visible {
+  border-color: #1c1c1c;
 }
 
-/* Theme */
+button:focus,
+.buttonDark:focus,
+button:focus-visible,
+.buttonDark:focus-visible {
+  border-color: #ffffff;
+}
+
+/* Other */
+.bg2,
+.bg2Light,
+.bg2Dark {
+  background: none;
+}
+
+.svgTheme,
+.svgThemeLight,
+.svgThemeDark {
+  filter: none;
+}
+
+/* Color scheme */
 
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
-  :root,
-  ::placeholder {
-    color: #111517;
+  h1,
+  h2,
+  p,
+  ::placeholder,
+  input,
+  button,
+  a {
+    color: var(--main-text-color-light);
   }
 
   body {
-    background: #f2f2f2;
+    background: var(--main-bg-color-light);
   }
 
-  ::placeholder {
-    opacity: 0.8;
-  }
-
-  .bg2 {
-    background: white;
-  }
-
+  .bg2,
   button {
-    background-color: #f9f9f9;
-    color: #111517;
+    background: var(--accent-bg-color-light);
+  }
+
+  button:hover {
+    border-color: #474747;
+  }
+
+  button:focus,
+  button:focus-visible {
+    border-color: #1c1c1c;
   }
 
   .svgTheme {
     filter: invert(0);
   }
-
-  a:-webkit-any-link {
-    color: #111517;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root,
-  ::placeholder {
-    color: white;
+  h1,
+  h2,
+  p,
+  ::placeholder,
+  input,
+  button,
+  a {
+    color: var(--main-text-color-dark);
   }
 
   body {
-    background: #202c36;
+    background: var(--main-bg-color-dark);
   }
 
-  ::placeholder {
-    opacity: 0.8;
-  }
-
-  .bg2 {
-    background: #2b3844;
-  }
-
+  .bg2,
   button {
-    background-color: #2b3844;
-    color: white;
+    background: var(--accent-bg-color-dark);
+  }
+
+  button:hover {
+    border-color: #c4c4c4;
+  }
+
+  button:focus,
+  button:focus-visible {
+    border-color: #ffffff;
   }
 
   .svgTheme {
     filter: invert(100%);
-  }
-
-  a:-webkit-any-link {
-    color: white;
   }
 }
 
-/* .darkTheme {
-  :root, ::placeholder {
-    color: white;
-  }
+/* Theme */
+.h1Light,
+.h2Light,
+.pLight,
+.inputLight,
+.inputLight::placeholder,
+.buttonLight,
+.aLight {
+  color: var(--main-text-color-light);
+}
 
-  body {
-    background: #202C36;
-  }
+.h1Dark,
+.h2Dark,
+.pDark,
+.inputDark,
+.inputDark::placeholder,
+.buttonDark,
+.aDark {
+  color: var(--main-text-color-dark);
+}
 
-  ::placeholder {
-    opacity: 0.8;
-  }
+.bodyLight {
+  background: var(--main-bg-color-light);
+}
 
-  .bg2 {
-    background: #2B3844;
-  }
+.bodyDark {
+  background: var(--main-bg-color-dark);
+}
 
-  button {
-    background-color: #2B3844;
-    color: white;
-  }
+.bg2Light,
+.buttonLight,
+.inputLight {
+  background: var(--accent-bg-color-light);
+}
 
-  .svgTheme {
-    filter: invert(100%);
-  }
-} */
+.bg2Dark,
+.buttonDark,
+.inputDark {
+  background: var(--accent-bg-color-dark);
+}
+
+.svgThemeLight {
+  filter: invert(0);
+}
+
+.svgThemeDark {
+  filter: invert(100%);
+}

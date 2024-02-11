@@ -1,13 +1,16 @@
 #containerAll {
   height: 390px;
-  padding: 80px;
+  padding: 128px 80px;
   width: 100%;
+  max-width: 1500px;
+  box-sizing: border-box;
+}
+
+#contents {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  box-sizing: border-box;
-  transform: translateY(-80px);
 }
 
 #flag {

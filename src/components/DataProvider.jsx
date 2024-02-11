@@ -69,7 +69,7 @@ export const DataProvider = ({ children }) => {
 
   if (loading === true) {
     console.log("Fetching data...");
-    return <div>Loading...</div>;
+    return <span>Loading...</span>;
   }
 
   return (

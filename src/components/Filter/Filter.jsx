@@ -3,14 +3,20 @@ import "./Filter.css";
 import { GetData } from "../DataProvider";
 import { GetFilter } from "./FilterProvider";
 import { GetSearch } from "../Search/SearchProvider";
+import { GetThemeValue } from "../ThemeButton/ThemeProvider";
 
 const Filter = () => {
   const { data, loading } = GetData();
   const { setFilteredRegion } = GetFilter();
   const { setSearchTerm } = GetSearch();
+  const { theme } = GetThemeValue();
 
   if (loading) {
-    return <div className="loading"></div>;
+    return (
+      <span
+        className={theme === "dark" ? "pDark loading" : "pLight loading"}
+      ></span>
+    );
   }
 
   // Cereating an array of unique regions
@@ -26,7 +32,11 @@ const Filter = () => {
 
   // Creates a dropdown menu with unique regions
   const dropdownMenu = uniqueRegions.map((region, index) => (
-    <li key={index} className="bg2" onClick={() => filterRegion(region)}>
+    <li
+      key={index}
+      className={theme === "dark" ? "bg2Dark pDark" : "bg2Light pLight"}
+      onClick={() => filterRegion(region)}
+    >
       {region}
     </li>
   ));
@@ -60,17 +70,27 @@ const Filter = () => {
       fill="none"
     >
       <path
+        className={theme === "dark" ? "svgThemeDark" : "svgThemeLight"}
         fillRule="evenodd"
         clipRule="evenodd"
         d="M9.45 3.45L6 6.9L2.55 3.45L1.5 4.5L6 9L10.5 4.5L9.45 3.45Z"
-        fill="black"
+        fill="#ffffff"
       />
     </svg>
   );
 
   return (
     <div id="filter" ref={filterRef}>
-      <button id="buttonFilter" type="button" onClick={toggleDropdown}>
+      <button
+        className={
+          theme === "dark"
+            ? "buttonDark buttonDarkHover buttonDarkFocus"
+            : "buttonLight buttonLightHover buttonLightFocus"
+        }
+        id="buttonFilter"
+        type="button"
+        onClick={toggleDropdown}
+      >
         Filter by Region
         <div
           id={openDropdown ? "arrowOpen" : "arrowClosed"}
@@ -79,8 +99,14 @@ const Filter = () => {
           {arrow}
         </div>
       </button>
-      <ul className="bg2" id={openDropdown ? "dropdownOpen" : "dropdownClosed"}>
-        <li className="bg2" onClick={() => filterRegion(null)}>
+      <ul
+        className={theme === "dark" ? "bg2Dark" : "bg2Light"}
+        id={openDropdown ? "dropdownOpen" : "dropdownClosed"}
+      >
+        <li
+          className={theme === "dark" ? "bg2Dark pDark" : "bg2Light pLight"}
+          onClick={() => filterRegion(null)}
+        >
           {" "}
           All{" "}
         </li>

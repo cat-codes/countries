@@ -8,11 +8,13 @@ import { GetData } from "../components/DataProvider";
 import { GetFilter } from "../components/Filter/FilterProvider";
 import { GetSearch } from "../components/Search/SearchProvider";
 import { Link } from "react-router-dom";
+import { GetThemeValue } from "../components/ThemeButton/ThemeProvider";
 
 const HomePage = () => {
   const { data, loading } = GetData();
   const { filteredRegion } = GetFilter();
   const { searchTerm, searchError, setSearchError } = GetSearch();
+  const { theme } = GetThemeValue();
 
   let gridItems;
 
@@ -38,20 +40,25 @@ const HomePage = () => {
   }
 
   gridItems = filteredData.map((country, index) => (
-    <section key={index} className="gridItem bg2">
+    <section
+      key={index}
+      className={theme === "dark" ? "bg2Dark gridItem" : "bg2Light gridItem"}
+    >
       <Link to={{ pathname: `/${country.name}`, state: { country: country } }}>
         <img id="imgFlag" src={country.flag} alt={`${country.name} Flag`} />
         <section className="summary">
-          <h2 className="h2Home">{country.name}</h2>
-          <p className="pHome">
+          <h2 className={theme === "dark" ? "h2Dark h2Home" : "h2Light h2Home"}>
+            {country.name}
+          </h2>
+          <p className={theme === "dark" ? "pDark pHome" : "pLight pHome"}>
             <span className="bold">Population: </span>
             {country.population}
           </p>
-          <p className="pHome">
+          <p className={theme === "dark" ? "pDark pHome" : "pLight pHome"}>
             <span className="bold">Region: </span>
             {country.region}
           </p>
-          <p className="pHome">
+          <p className={theme === "dark" ? "pDark pHome" : "pLight pHome"}>
             <span className="bold">Capital: </span>
             {country.capital}
           </p>
@@ -63,11 +70,14 @@ const HomePage = () => {
   return (
     <div id="containerHome">
       <Header />
-      <Search id="search" />
-      <Filter id="filter" />
+      <Search />
+      <Filter />
       <section id="grid">
         {searchError ? (
-          <p className="pHome" id="errorMessage">
+          <p
+            className={theme === "dark" ? "pDark pHome" : "pLight pHome"}
+            id="errorMessage"
+          >
             No Results.
           </p>
         ) : (

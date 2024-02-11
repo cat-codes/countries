@@ -5,21 +5,25 @@ import Header from "../components/Header/Header.jsx";
 import BackButton from "../components/BackButton/BackButton.jsx";
 import { useParams } from "react-router-dom";
 import { GetData } from "../components/DataProvider.jsx";
+import { GetThemeValue } from "../components/ThemeButton/ThemeProvider";
 
 const CountryPage = () => {
   const { data } = GetData();
   const { clickedCountry } = useParams();
+  const { theme } = GetThemeValue();
   const selectedCountry = data.find((item) => item.name === clickedCountry);
 
   return (
-    <div>
+    <div id="containerAll">
       <Header />
       <BackButton />
-      <div id="containerAll">
+      <div id="contents">
         <img id="flag" src={selectedCountry.flag} />
         <section id="info">
-          <h2 className="h2info">{selectedCountry.name}</h2>
-          <p className="pInfo">
+          <h2 className={theme === "dark" ? "h2Dark h2Info" : "h2Light h2Info"}>
+            {selectedCountry.name}
+          </h2>
+          <p className={theme === "dark" ? "pDark pInfo" : "pLight pInfo"}>
             <span className="bold">Native Name: </span>
             {selectedCountry.nativeName
               ? selectedCountry.nativeName[
@@ -57,17 +61,38 @@ const CountryPage = () => {
               : "n/a"}
           </p>
           <section id="borders">
-            <p className="bold boldBorders">Border Countries: </p>
+            <p
+              className={
+                theme === "dark"
+                  ? "pDark bold boldBorders"
+                  : "pLight bold boldBorders"
+              }
+            >
+              Border Countries:{" "}
+            </p>
             <section id="borderGrid">
               {selectedCountry.borders ? (
                 selectedCountry.borders.map((borderCode) => (
-                  <p id="border" className="bg2 pBorders" key={borderCode}>
+                  <p
+                    id="border"
+                    className={
+                      theme === "dark"
+                        ? "pDark pBorders bg2Dark"
+                        : "pLight pBorders bg2Light"
+                    }
+                    key={borderCode}
+                  >
                     {data.find((country) => country.cca3 === borderCode)?.name
                       ?.common || borderCode}
                   </p>
                 ))
               ) : (
-                <p className="pNotes" id="noBorders">
+                <p
+                  className={
+                    theme === "dark" ? "pDark pNotes" : "pLight pNotes"
+                  }
+                  id="noBorders"
+                >
                   {" "}
                   n/a{" "}
                 </p>

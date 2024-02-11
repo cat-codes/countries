@@ -4,6 +4,7 @@ button {
   line-height: var(--line-height-auto);
 }
 
-#moonLight, #moonDark {
+#moonLight,
+#moonDark {
   padding: 10px 10px 10px 0;
 }

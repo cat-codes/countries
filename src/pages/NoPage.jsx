@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const NoPage = () => {
-  return (
-    <h2>
-      Error 404: Not Found
-    </h2>
-  )
-}
+  return <h2>Error 404: Not Found</h2>;
+};
 
-export default NoPage
+export default NoPage;

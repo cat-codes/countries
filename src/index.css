@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Nunito Sans', sans-serif;  
+  font-family: "Nunito Sans", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,61 +33,33 @@ body {
   overflow-x: hidden;
 }
 
-/* Titles */
-.title {
+/* Fonts */
+h1 {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
 }
 
-.titleHome {
-  font-size: var(--font-size-medium);
-  font-weight: var(--font-weight-bold);
-  padding-bottom: 12px;
-}
-
-.titleInfo {
-  font-size: var(--font-size-xlarge);
+h2 {
   font-weight: var(--font-weight-bold);
 }
 
-/* P regular */
-
-.pRegHome, .pRegInfo, .pRegNotes {
+p {
   font-weight: var(--font-weight-light);
-  padding: 4px 0;
 }
 
-.pRegHome, .pRegNotes {
-  font-size: var(--font-size-xsmall);
-}
-.pRegInfo {
-  font-size: var(--font-size-small);
-}
-
-/* P bold */
-
-.pBoldHome, .pBoldInfo, .pBoldNotes {
+.bold {
   font-weight: var(--font-weight-medium);
-  padding: 4px 0;
 }
 
-.pBoldHome {
-  font-size: var(--font-size-xsmall);
-}
-.pBoldInfo, .pBoldNotes {
-  font-size: var(--font-size-small); 
+a:-webkit-any-link {
+  text-decoration: none;
 }
 
-/* other */
 .loading {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-a:-webkit-any-link {
-  text-decoration: none;
 }
 
 /* Buttons */
@@ -108,7 +80,7 @@ button {
   transition: border-color 0.3s ease-out;
 }
 
-button:hover {  
+button:hover {
   border-color: rgb(196, 196, 196);
 }
 
@@ -119,14 +91,14 @@ button:focus-visible {
 
 /* Theme */
 
-@media (prefers-color-scheme: light), 
-(prefers-color-scheme: no-preference) {
-  :root, ::placeholder {
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+  :root,
+  ::placeholder {
     color: #111517;
   }
 
   body {
-    background: #F2F2F2;
+    background: #f2f2f2;
   }
 
   ::placeholder {
@@ -152,12 +124,13 @@ button:focus-visible {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root, ::placeholder {
+  :root,
+  ::placeholder {
     color: white;
   }
 
   body {
-    background: #202C36;
+    background: #202c36;
   }
 
   ::placeholder {
@@ -165,11 +138,11 @@ button:focus-visible {
   }
 
   .bg2 {
-    background: #2B3844;
+    background: #2b3844;
   }
 
   button {
-    background-color: #2B3844;
+    background-color: #2b3844;
     color: white;
   }
 

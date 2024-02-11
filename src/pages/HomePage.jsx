@@ -48,19 +48,19 @@ const HomePage = () => {
         <img id="imgFlag" src={country.flag} alt={`${country.name} Flag`} />
         <section className="summary">
           <h2 className={theme === "dark" ? "h2Dark h2Home" : "h2Light h2Home"}>
-            {country.name}
+            {country.name ? country.name : "n/a"}
           </h2>
           <p className={theme === "dark" ? "pDark pHome" : "pLight pHome"}>
             <span className="bold">Population: </span>
-            {country.population}
+            {country.population ? country.population : "n/a"}
           </p>
           <p className={theme === "dark" ? "pDark pHome" : "pLight pHome"}>
             <span className="bold">Region: </span>
-            {country.region}
+            {country.region ? country.region : "n/a"}
           </p>
           <p className={theme === "dark" ? "pDark pHome" : "pLight pHome"}>
             <span className="bold">Capital: </span>
-            {country.capital}
+            {country.capital ? country.capital : "n/a"}
           </p>
         </section>
       </Link>

@@ -1,7 +1,7 @@
 import './App.css';
-import { GetThemeValue } from './components/Nav/ThemeProvider';
+import { GetThemeValue } from './components/ThemeButton/ThemeProvider';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/Homepage';
+import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
 import NoPage from './pages/NoPage';
 

@@ -31,3 +31,43 @@
   transform: rotate(90deg);
   transition: ease-out 300ms;
 }
+
+#dropdownOpen {
+  display: block;
+}
+
+#dropdownClosed {
+  display: none;
+}
+
+ul {
+  height: auto;
+  width: 200px;
+  padding: 0;
+  border: 2px solid rgb(28, 28, 28);
+  margin-block-start: 0;
+  margin-block-end: 0;
+  border-radius: 8px;
+  background: white;
+  box-sizing: border-box;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: border-color 0.3s ease-out;
+}
+
+li:hover {
+  border-color: rgb(196, 196, 196);
+}

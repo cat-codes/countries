@@ -1,20 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './CountryPage.css'
-import { useParams } from 'react-router-dom';
-import Header from '../components/Nav/Header.jsx'
-import { GetData } from '../components/DataProvider.jsx';
+import Header from '../components/Header/Header.jsx'
 import BackButton from '../components/BackButton/BackButton.jsx'
+import { useParams } from 'react-router-dom';
+import { GetData } from '../components/DataProvider.jsx';
 
 const CountryPage = () => {
   const { data } = GetData();
-  console.log('CountryPage data:', data)
-
   const { clickedCountry } = useParams();
-  console.log('Clicked country:', clickedCountry);
-
   const selectedCountry = data.find(item => item.name === clickedCountry);
-  console.log('Selected Country:', selectedCountry);
 
   return (
     <div>
@@ -25,41 +20,41 @@ const CountryPage = () => {
           <img id='flag' src={selectedCountry.flag} />
           <div id='infoPart'>
             <div id='infoMain'>
-              <div className='titleInfo' id='title'>{selectedCountry.name}</div>
+              <span className='titleInfo' id='title'>{selectedCountry.name}</span>
               <div id='infoBody' className='pRegInfo'>
                 <span className='pBoldInfo'>Native Name: </span>
-                {selectedCountry.nativeName[Object.keys(selectedCountry.nativeName)[0]].official}
+                {selectedCountry.nativeName ? selectedCountry.nativeName[Object.keys(selectedCountry.nativeName)[0]].official : 'n/a'}
                 <br />
                 <span className='pBoldInfo'>Population: </span>
-                {selectedCountry.population}
+                {selectedCountry.population ? selectedCountry.population : 'n/a'}
                 <br />
                 <span className='pBoldInfo'>Region: </span>
-                {selectedCountry.region}
+                {selectedCountry.region ? selectedCountry.region : 'n/a'}
                 <br />
                 <span className='pBoldInfo'>Sub Region: </span>
-                {selectedCountry.subregion}
+                {selectedCountry.subregion ? selectedCountry.subregion : 'n/a'}
                 <br />
                 <span className='pBoldInfo'>Capital: </span>
-                {selectedCountry.capital}
+                {selectedCountry.capital ? selectedCountry.capital : 'n/a'}
                 <br />
                 <span className='pBoldInfo'>Top Level Domain: </span>
-                {selectedCountry.tld}
+                {selectedCountry.tld ? selectedCountry.tld : 'n/a'}
                 <br />
                 <span className='pBoldInfo'>Currencies: </span>
-                {Object.values(selectedCountry.currencies).map(currency => currency.name)}
+                {selectedCountry.currencies ? Object.values(selectedCountry.currencies).map(currency => currency.name) : 'n/a'}
                 <br />
                 <span className='pBoldInfo'>Languages: </span>
-                {Object.values(selectedCountry.languages).map(language => language)}
+                {selectedCountry.languages ? Object.values(selectedCountry.languages).map(language => language) : 'n/a'}
               </div>
             </div>
             <div id='notes'>
               <span className='pBoldInfo'>Border Countries: </span>
               <div id='infoGrid'> 
-                {selectedCountry.borders.map(borderCode => (
-                  <div id='border' className='bg2 pRegNotes' key={borderCode}>
+                {selectedCountry.borders ? selectedCountry.borders.map(borderCode => (
+                  <span id='border' className='bg2 pRegNotes' key={borderCode}>
                     {data.find(country => country.cca3 === borderCode)?.name?.common || borderCode}
-                  </div>
-                ))}
+                  </span>
+                )) : <span id='noBorders' className='pRegNotes'> n/a </span>}
               </div>
             </div>
           </div>

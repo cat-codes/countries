@@ -63,11 +63,9 @@ export const DataProvider = ({children}) => {
     console.log("Fetching data...")
     return <div>Loading...</div>;
   }
-
-  // console.log(`DataProvider: ${data}`);
   
   return (
-    <DataContext.Provider value={{ data, error }}>
+    <DataContext.Provider value={{ data, error, loading }}>
       {children}
     </DataContext.Provider>
   );
@@ -75,7 +73,6 @@ export const DataProvider = ({children}) => {
 
 DataProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  data: PropTypes.array,
 };
 
 export const GetData = () => useContext(DataContext);

@@ -7,22 +7,24 @@ const Search = () => {
 
   const [input, setInput] = useState('')
 
+  // Gets input value and stores it in 'input'
   const handleInputChange = (event) => {
     setInput(event.target.value);
   }
 
+  // Search function that uses input value as a search term on submit
   const handleSearch = () => {
     if (input.trim() !== '') {
-      setSearchTerm(input)
-      setInput('')
+      setSearchTerm(input);
+      setInput('');
     }
   };
 
+  // 'Enter' key equals to submit
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       handleSearch();
-      setInput('')
     }
   }
 
@@ -39,7 +41,7 @@ const Search = () => {
       <input
         className='bg2'
         type='text' 
-        value={input || ''} 
+        value={input} 
         onChange={handleInputChange} 
         onKeyDown={handleKeyPress} 
         placeholder='Search for a country...'
@@ -48,4 +50,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default Search;

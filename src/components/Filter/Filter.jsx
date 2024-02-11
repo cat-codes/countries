@@ -1,20 +1,48 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './Filter.css'
-import FilterMenu from './FilterMenu'
+import { GetData } from '../DataProvider';
+import { GetFilter } from './FilterProvider';
+import { GetSearch } from '../Search/SearchProvider';
 
 const Filter = () => {
-  
-  const [openDropdown, setOpenDropdown] = useState(false);
-  const filterRef = useRef(null);
+  const { data, loading } = GetData();
+  const { setFilteredRegion } = GetFilter();
+  const { setSearchTerm } = GetSearch();
 
+  if (loading) {
+    return <div className='loading'></div>;
+  }
+
+  // Cereating an array of unique regions
+  const uniqueRegions = Array.from(new Set(data.map(country => country.region)))
+
+  // Sets a filter region
+  const filterRegion = (region) => {
+    setSearchTerm('');
+    setFilteredRegion(region);
+  }
+
+  // Creates a dropdown menu with unique regions
+  const dropdownMenu = uniqueRegions.map((region, index) => (
+    <li key={index} className='bg2' onClick={() => filterRegion(region)}>
+      {region}
+    </li>
+    )
+  );
+
+  // Toggles filter dropdown menu
+  const [openDropdown, setOpenDropdown] = useState(false);
   const toggleDropdown = () => setOpenDropdown((prev) => !prev);
 
+  // Closes filter menu after outside click
+  const filterRef = useRef(null);
   const handleOutsideClick = (event) => {
     if (filterRef.current && !filterRef.current.contains(event.target)) {
       setOpenDropdown(false);
     }
   };
 
+  // Adds event listener to dow to detect clicks outside filter menu
   useEffect(() => {
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {
@@ -35,7 +63,10 @@ const Filter = () => {
           {arrow}
         </div>
       </button>
-      <FilterMenu id={openDropdown ? 'dropdownOpen' : 'dropdownClosed'}/>
+      <ul className='bg2' id={openDropdown ? 'dropdownOpen' : 'dropdownClosed'}>
+        <li className='bg2' onClick={() => filterRegion(null)}> All </li>
+        {dropdownMenu}
+    </ul>
     </div>
   )
 }

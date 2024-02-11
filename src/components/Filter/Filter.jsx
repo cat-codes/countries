@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from "react";
 import "./Filter.css";
 import { GetData } from "../DataProvider";
@@ -6,7 +7,7 @@ import { GetSearch } from "../Search/SearchProvider";
 import { GetThemeValue } from "../ThemeButton/ThemeProvider";
 
 const Filter = () => {
-  const { data, loading } = GetData();
+  const { data, loading, error } = GetData();
   const { setFilteredRegion } = GetFilter();
   const { setSearchTerm } = GetSearch();
   const { theme } = GetThemeValue();
@@ -21,7 +22,11 @@ const Filter = () => {
 
   // Cereating an array of unique regions
   const uniqueRegions = Array.from(
-    new Set(data.map((country) => country.region))
+    new Set(
+      data
+        ? data.map((country) => country.region)
+        : console.log("uniqueRegions", error)
+    )
   );
 
   // Sets a filter region
@@ -31,15 +36,17 @@ const Filter = () => {
   };
 
   // Creates a dropdown menu with unique regions
-  const dropdownMenu = uniqueRegions.map((region, index) => (
-    <li
-      key={index}
-      className={theme === "dark" ? "bg2Dark pDark" : "bg2Light pLight"}
-      onClick={() => filterRegion(region)}
-    >
-      {region}
-    </li>
-  ));
+  const dropdownMenu = uniqueRegions
+    ? uniqueRegions.map((region, index) => (
+        <li
+          key={index}
+          className={theme === "dark" ? "bg2Dark pDark" : "bg2Light pLight"}
+          onClick={() => filterRegion(region)}
+        >
+          {region}
+        </li>
+      ))
+    : console.log("dropdownMenu", error);
 
   // Toggles filter dropdown menu
   const [openDropdown, setOpenDropdown] = useState(false);

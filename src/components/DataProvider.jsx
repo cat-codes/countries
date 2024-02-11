@@ -24,32 +24,34 @@ export const DataProvider = ({ children }) => {
       const responseData = await response.data;
 
       // Extracting relevant data into country object
-      const country = responseData.map(
-        ({
-          flags: { png },
-          name: { common, nativeName },
-          population,
-          region,
-          subregion,
-          capital,
-          tld,
-          currencies,
-          languages,
-          borders,
-        }) => ({
-          flag: png,
-          name: common,
-          nativeName,
-          population,
-          region,
-          subregion,
-          capital,
-          tld,
-          currencies,
-          languages,
-          borders,
-        })
-      );
+      const country = responseData
+        ? responseData.map(
+            ({
+              flags: { svg },
+              name: { common, nativeName },
+              population,
+              region,
+              subregion,
+              capital,
+              tld,
+              currencies,
+              languages,
+              borders,
+            }) => ({
+              flag: svg,
+              name: common,
+              nativeName,
+              population,
+              region,
+              subregion,
+              capital,
+              tld,
+              currencies,
+              languages,
+              borders,
+            })
+          )
+        : console.log("responseData", error);
 
       // Setting country as data
       setData(country);

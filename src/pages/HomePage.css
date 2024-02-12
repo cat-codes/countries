@@ -65,6 +65,7 @@
   #grid {
     grid-template-columns: repeat(3, 250px);
     column-gap: 30px;
+    row-gap: 30px;
   }
 
   .h2Home {
@@ -110,6 +111,5 @@
   #grid {
     padding-top: 105px;
     grid-template-columns: auto;
-    row-gap: 40px;
   }
 }

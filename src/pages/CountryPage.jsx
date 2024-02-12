@@ -18,7 +18,7 @@ const CountryPage = () => {
       <Header />
       <BackButton />
       <div id="contents">
-        <img id="flag" src={selectedCountry.flag} />
+        <img id="flagInfo" src={selectedCountry.flag} />
         <section id="info">
           <h2 className={theme === "dark" ? "h2Dark h2Info" : "h2Light h2Info"}>
             {selectedCountry.name}
@@ -93,7 +93,7 @@ const CountryPage = () => {
                   id="noBorders"
                 >
                   {" "}
-                  n/a{" "}
+                  none{" "}
                 </p>
               )}
             </section>

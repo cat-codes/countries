@@ -1,0 +1,36 @@
+#spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  scale: 200%;
+}
+
+.spinner_qM83 {
+  animation: spinner_8HQG 1.05s infinite;
+  fill: #ffffff;
+}
+.spinner_oXPr {
+  animation-delay: 0.1s;
+  fill: #ffffff;
+}
+.spinner_ZTLf {
+  animation-delay: 0.2s;
+  fill: #ffffff;
+}
+
+@keyframes spinner_8HQG {
+  0%,
+  57.14% {
+    animation-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1);
+    transform: translate(0);
+  }
+  28.57% {
+    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}

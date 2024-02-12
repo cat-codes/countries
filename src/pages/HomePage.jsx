@@ -4,6 +4,7 @@ import "./HomePage.css";
 import Header from "../components/Header/Header.jsx";
 import Search from "../components/Search/Search.jsx";
 import Filter from "../components/Filter/Filter.jsx";
+import Spinner from "../components/Spinner/Spinner.jsx";
 import { GetData } from "../components/DataProvider";
 import { GetFilter } from "../components/Filter/FilterProvider";
 import { GetSearch } from "../components/Search/SearchProvider";
@@ -22,12 +23,7 @@ const HomePage = () => {
     setSearchError(false);
   }, [searchTerm, filteredRegion, setSearchError]);
 
-  if (loading)
-    return (
-      <span className={theme === "dark" ? "loadingDark" : "loadingLight"}>
-        Loading...
-      </span>
-    );
+  if (loading) return <Spinner />;
 
   let filteredData = [];
 

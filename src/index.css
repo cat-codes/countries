@@ -76,15 +76,6 @@ a {
   opacity: 0.8;
 }
 
-.loading,
-.loadingLight,
-.loadingDark {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 /* Buttons */
 
 button,
@@ -223,8 +214,7 @@ svg {
 .inputLight,
 .inputLight::placeholder,
 .buttonLight,
-.aLight,
-.loadingLight {
+.aLight {
   color: var(--main-text-color-light);
 }
 
@@ -234,8 +224,7 @@ svg {
 .inputDark,
 .inputDark::placeholder,
 .buttonDark,
-.aDark,
-.loadingDark {
+.aDark {
   color: var(--main-text-color-dark);
 }
 

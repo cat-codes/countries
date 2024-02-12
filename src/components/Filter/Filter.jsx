@@ -5,6 +5,7 @@ import { GetData } from "../DataProvider";
 import { GetFilter } from "./FilterProvider";
 import { GetSearch } from "../Search/SearchProvider";
 import { GetThemeValue } from "../ThemeButton/ThemeProvider";
+import Spinner from "../Spinner/Spinner";
 
 const Filter = () => {
   const { data, loading, error } = GetData();
@@ -13,11 +14,7 @@ const Filter = () => {
   const { theme } = GetThemeValue();
 
   if (loading) {
-    return (
-      <span
-        className={theme === "dark" ? "loadingDark" : "loadingLight"}
-      ></span>
-    );
+    return <Spinner />;
   }
 
   // Cereating an array of unique regions

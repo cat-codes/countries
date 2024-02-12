@@ -76,7 +76,9 @@ a {
   opacity: 0.8;
 }
 
-.loading {
+.loading,
+.loadingLight,
+.loadingDark {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -221,7 +223,8 @@ svg {
 .inputLight,
 .inputLight::placeholder,
 .buttonLight,
-.aLight {
+.aLight,
+.loadingLight {
   color: var(--main-text-color-light);
 }
 
@@ -231,7 +234,8 @@ svg {
 .inputDark,
 .inputDark::placeholder,
 .buttonDark,
-.aDark {
+.aDark,
+.loadingDark {
   color: var(--main-text-color-dark);
 }
 

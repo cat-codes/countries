@@ -37,6 +37,7 @@ export const DataProvider = ({ children }) => {
               currencies,
               languages,
               borders,
+              cca3,
             }) => ({
               flag: svg,
               name: common,
@@ -49,6 +50,7 @@ export const DataProvider = ({ children }) => {
               currencies,
               languages,
               borders,
+              cca3,
             })
           )
         : console.log("responseData", error);

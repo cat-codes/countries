@@ -55,9 +55,9 @@ const CountryPage = () => {
             <br />
             <span className="bold">Languages: </span>
             {selectedCountry.languages
-              ? Object.values(selectedCountry.languages).map(
-                  (language) => language
-                )
+              ? Object.values(selectedCountry.languages)
+                  .map((language) => language)
+                  .join(", ")
               : "n/a"}
           </p>
           <section id="borders">
@@ -72,19 +72,24 @@ const CountryPage = () => {
             </p>
             <section id="borderGrid">
               {selectedCountry.borders ? (
-                selectedCountry.borders.map((borderCode) => (
-                  <p
-                    className={
-                      theme === "dark"
-                        ? "pDark pBorders border bg2Dark"
-                        : "pLight pBorders border bg2Light"
-                    }
-                    key={borderCode}
-                  >
-                    {data.find((country) => country.cca3 === borderCode)?.name
-                      ?.common || borderCode}
-                  </p>
-                ))
+                selectedCountry.borders.map((borderCode) => {
+                  const borderCountry = data.find(
+                    (country) => country.cca3 === borderCode
+                  );
+                  const borderName = borderCountry?.name || borderCode;
+                  return (
+                    <p
+                      className={
+                        theme === "dark"
+                          ? "pDark pBorders border bg2Dark"
+                          : "pLight pBorders border bg2Light"
+                      }
+                      key={borderCode}
+                    >
+                      {borderName}
+                    </p>
+                  );
+                })
               ) : (
                 <p
                   className={
@@ -92,8 +97,7 @@ const CountryPage = () => {
                   }
                   id="noBorders"
                 >
-                  {" "}
-                  none{" "}
+                  none
                 </p>
               )}
             </section>

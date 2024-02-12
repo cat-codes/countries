@@ -17,7 +17,7 @@ const Search = () => {
   // Search function that uses input value as a search term on submit
   const handleSearch = () => {
     if (input.trim() !== "") {
-      setSearchTerm(input);
+      setSearchTerm(input.trim());
       setInput("");
     }
   };

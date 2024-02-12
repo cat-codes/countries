@@ -49,3 +49,16 @@
 #errorMessage {
   padding-top: 30px;
 }
+
+@media screen and (max-width: 480px) {
+  #containerHome {
+    padding: 80px 16px;
+  }
+
+  #grid {
+    padding-top: 95px;
+    justify-content: center;
+    grid-template-columns: repeat(1, 264px);
+    row-gap: 40px;
+  }
+}

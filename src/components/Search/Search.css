@@ -44,3 +44,10 @@ input::placeholder {
 input:focus {
   outline: none;
 }
+
+@media screen and (max-width: 480px) {
+  #search {
+    height: 48px;
+    width: 100%;
+  }
+}

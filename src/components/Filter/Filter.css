@@ -71,3 +71,20 @@ li {
 li:hover {
   border-color: rgb(196, 196, 196);
 }
+
+@media screen and (max-width: 480px) {
+  #filter {
+    top: 150px;
+    right: 16px;
+  }
+
+  #buttonFilter {
+    height: 48px;
+  }
+
+  li {
+    font-size: 12px;
+    height: 25px;
+    padding: 15px 30px;
+  }
+}

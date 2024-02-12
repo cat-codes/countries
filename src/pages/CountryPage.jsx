@@ -74,11 +74,10 @@ const CountryPage = () => {
               {selectedCountry.borders ? (
                 selectedCountry.borders.map((borderCode) => (
                   <p
-                    id="border"
                     className={
                       theme === "dark"
-                        ? "pDark pBorders bg2Dark"
-                        : "pLight pBorders bg2Light"
+                        ? "pDark pBorders border bg2Dark"
+                        : "pLight pBorders border bg2Light"
                     }
                     key={borderCode}
                   >

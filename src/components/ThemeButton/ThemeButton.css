@@ -7,3 +7,10 @@ button {
 #moonDark {
   padding: 10px 10px 10px 0;
 }
+
+@media screen and (max-width: 480px) {
+  #moonLight,
+  #moonDark {
+    padding: 3px 3px 3px 0;
+  }
+}

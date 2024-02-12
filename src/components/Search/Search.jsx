@@ -41,7 +41,6 @@ const Search = () => {
     >
       <g>
         <path
-          id="Shape"
           className={theme === "dark" ? "svgThemeDark" : "svgThemeLight"}
           fillRule="evenodd"
           clipRule="evenodd"

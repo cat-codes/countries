@@ -133,6 +133,11 @@ button:focus-visible,
   background: none;
 }
 
+svg {
+  height: 20px;
+  width: 20px;
+}
+
 .svgTheme,
 .svgThemeLight,
 .svgThemeDark {
@@ -256,4 +261,35 @@ button:focus-visible,
 
 .svgThemeDark {
   filter: invert(100%);
+}
+
+/* Responsiveness */
+
+@media screen and (max-width: 480px) {
+  h1,
+  .h1Light,
+  .h1Dark {
+    font-size: var(--font-size-xsmall);
+  }
+
+  h2,
+  .h2Light,
+  .h2Dark {
+    font-size: var(--font-size-medium);
+  }
+
+  button,
+  .buttonLight,
+  .buttonDark {
+    font-size: 12px;
+  }
+
+  svg {
+    height: 16px;
+    width: 16px;
+  }
+
+  input::placeholder {
+    font-size: 12px;
+  }
 }

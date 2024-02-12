@@ -2,10 +2,13 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { GetThemeValue } from "../ThemeButton/ThemeProvider";
 
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
+  const { theme } = GetThemeValue();
+
   const baseUrl = "https://restcountries.com/v3.1/all";
 
   const [data, setData] = useState(() => {
@@ -73,7 +76,11 @@ export const DataProvider = ({ children }) => {
 
   if (loading === true) {
     console.log("Fetching data...");
-    return <span>Loading...</span>;
+    return (
+      <span className={theme === "dark" ? "loadingDark" : "loadingLight"}>
+        Loading...
+      </span>
+    );
   }
 
   return (

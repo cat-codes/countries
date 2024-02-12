@@ -15,7 +15,7 @@ const Filter = () => {
   if (loading) {
     return (
       <span
-        className={theme === "dark" ? "pDark loading" : "pLight loading"}
+        className={theme === "dark" ? "loadingDark" : "loadingLight"}
       ></span>
     );
   }

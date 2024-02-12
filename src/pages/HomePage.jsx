@@ -24,9 +24,9 @@ const HomePage = () => {
 
   if (loading)
     return (
-      <div className={theme === "dark" ? "loadingDark" : "loadingLight"}>
+      <span className={theme === "dark" ? "loadingDark" : "loadingLight"}>
         Loading...
-      </div>
+      </span>
     );
 
   let filteredData = [];

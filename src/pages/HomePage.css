@@ -13,7 +13,7 @@
   justify-content: space-between;
   width: 100%;
   grid-template-columns: repeat(4, 264px);
-  column-gap: 75px;
+  column-gap: 50px;
   row-gap: 75px;
 }
 
@@ -22,7 +22,7 @@
 }
 
 #imgFlag {
-  height: 160px;
+  height: auto;
   width: 100%;
 }
 
@@ -50,15 +50,66 @@
   padding-top: 30px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1370px) {
   #containerHome {
-    padding: 80px 16px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
   #grid {
-    padding-top: 95px;
+    grid-template-columns: repeat(3, 300px);
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  #grid {
+    grid-template-columns: repeat(3, 250px);
+    column-gap: 30px;
+  }
+
+  .h2Home {
+    font-size: var(--font-size-small);
+  }
+
+  .pHome {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  #grid {
+    grid-template-columns: repeat(2, 350px);
+  }
+}
+
+@media screen and (max-width: 860px) {
+  #grid {
+    grid-template-columns: repeat(2, 300px);
+    padding-top: 120px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #grid {
+    grid-template-columns: repeat(2, 250px);
+  }
+}
+
+@media screen and (max-width: 630px) {
+  #grid {
+    grid-template-columns: 350px;
     justify-content: center;
-    grid-template-columns: repeat(1, 264px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #containerHome {
+    padding: 110px 28px;
+  }
+
+  #grid {
+    padding-top: 105px;
+    grid-template-columns: auto;
     row-gap: 40px;
   }
 }

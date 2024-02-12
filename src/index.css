@@ -264,6 +264,18 @@ svg {
 }
 
 /* Responsiveness */
+@media screen and (max-width: 630px) {
+  h1,
+  .h1Light,
+  .h1Dark {
+    font-size: var(--font-size-medium);
+  }
+
+  svg {
+    height: 16px;
+    width: 16px;
+  }
+}
 
 @media screen and (max-width: 480px) {
   h1,
@@ -278,18 +290,13 @@ svg {
     font-size: var(--font-size-medium);
   }
 
-  button,
-  .buttonLight,
-  .buttonDark {
+  input::placeholder {
     font-size: 12px;
   }
 
-  svg {
-    height: 16px;
-    width: 16px;
-  }
-
-  input::placeholder {
+  button,
+  .buttonLight,
+  .buttonDark {
     font-size: 12px;
   }
 }

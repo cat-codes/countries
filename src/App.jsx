@@ -8,7 +8,7 @@ import NoPage from "./pages/NoPage";
 function App() {
   const { theme } = GetThemeValue();
   return (
-    <body className={theme === "dark" ? "bodyDark" : "bodyLight"}>
+    <div className={theme === "dark" ? "bodyDark" : "bodyLight"}>
       <BrowserRouter>
         <Routes>
           <Route index element={<HomePage />} />
@@ -17,7 +17,7 @@ function App() {
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
-    </body>
+    </div>
   );
 }
 

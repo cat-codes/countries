@@ -92,10 +92,8 @@ const CountryPage = () => {
                 })
               ) : (
                 <p
-                  className={
-                    theme === "dark" ? "pDark pNotes" : "pLight pNotes"
-                  }
-                  id="noBorders"
+                  id="noBorder"
+                  className={theme === "dark" ? "pDark " : "pLight "}
                 >
                   none
                 </p>
